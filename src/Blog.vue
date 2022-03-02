@@ -1,6 +1,8 @@
 <template>
   <h2>Un titre d'article</h2>
-  <p :style="{ fontsize: props.fontSize + 'px' }">
+  <button @click="emit('bigger', 2)">+</button>
+  <button @click="emit('smaller')">-</button>
+  <p :style="{ fontSize: props.fontSize + 'px' }">
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     Lorem Ipsum has been the industry's standard dummy text ever since the
     1500s, when an unknown printer took a galley of type and scrambled it to
@@ -13,7 +15,12 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ fontsize: Number }>();
+const props = defineProps<{ fontSize: Number }>();
+
+const emit = defineEmits<{
+  (e: 'bigger', inc: number): void;
+  (e: 'smaller'): void;
+}>();
 </script>
 
 <style scoped lang="scss"></style>
