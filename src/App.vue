@@ -1,17 +1,13 @@
 <template>
-  <Product :product="product" />
+  <Blog :fontSize="fontSize" />
+  <Blog :fontSize="fontSize" />
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
-import Product from './Product.vue';
-import ProductI from './interfaces/product.interface.ts';
+import { ref } from 'vue';
+import Blog from './Blog.vue';
 
-const product: ProductI = reactive({
-  available: true,
-  price: 1500,
-  name: 'Moto',
-});
+const fontSize = ref(2);
 </script>
 
 <style scoped lang="scss"></style>
